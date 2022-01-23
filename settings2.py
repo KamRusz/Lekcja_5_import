@@ -4,14 +4,16 @@ obiekty = []
 suma_saldo = 0
 towary = {}
 
-
 def czytaj_sys():
-    opcje = sys.argv[1:]
-    if len(opcje)>=1:
+    try:
+        opcje = sys.argv[1:]
         sciezka = opcje[0]
-    else:
+    except IndexError:
         print("nie podano argumentów")
-        sciezka=None    
+        sciezka = None
+    else:
+        opcje = sys.argv[1:]
+        sciezka = opcje[0]
     return sciezka, opcje
 
 def wczytywanie_danych(sciezka):
